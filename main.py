@@ -36,8 +36,10 @@ def higher_lower():
             counter += 1
             cls()
             print(f"You are right! Your current score is {counter}")
-            print("\n------------------------------------------------\n")
-            
+            print(logo)
+        elif choice != "A" or choice != "B":
+            print("Invalid input!")
+            continue_playing = False  
         else:
             print(f"Sorry, that's wrong. Final score: {counter}")
             continue_playing = False
