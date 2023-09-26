@@ -1,6 +1,7 @@
 import art
 import game_data
 import random
+import os
 
 from art import logo
 from art import vs
@@ -11,6 +12,9 @@ def random_character():
     character = random.choice(data)
     return character
 
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+    
 print(logo)
 
 def higher_lower():
@@ -30,12 +34,13 @@ def higher_lower():
 
         if (choice == "A" and a['follower_count'] > b['follower_count']) or (choice == "B" and b['follower_count'] > a['follower_count']):
             counter += 1
+            cls()
             print(f"You are right! Your current score is {counter}")
-            print("\n-------------------------------------------------------------------")
+            print("\n------------------------------------------------\n")
+            
         else:
             print(f"Sorry, that's wrong. Final score: {counter}")
             continue_playing = False
-            print("\n-------------------------------------------------------------------")
 
     return counter
 
@@ -43,4 +48,5 @@ play_again = 'y'
 while play_again == 'y':
     score = higher_lower()
     play_again = input("Do you want to play again? Write 'y' if you want to continue or 'n' if you want to stop: ")
-    print("\n-------------------------------------------------------------------")
+    if play_again == "y":
+        cls()
